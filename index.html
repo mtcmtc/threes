@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minnesota Timberwolves and Arby's – We Have the Threes</title>
+    <link href="https://use.typekit.net/vat6ysz.css" rel="stylesheet" />
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      body {
+        background-color: #f2f2f2;
+        /*background-image: url('./media/marq7/bg@2x.png');*/
+        background-position: top left;
+        background-size: contain;
+        background-repeat: no-repeat;
+        font-family: futura-pt, Futura, tahoma, sans-serif;
+        color: #000;
+      }
+      .flex-display{
+        display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;  /* TWEENER - IE 10 */
+        display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+        display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+      }
+
+      #threesLP{
+        max-width: 568px;
+        margin: 0 auto; 
+        height:100%; 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+        flex-direction: column; 
+        -webkit-box-pack: justify; 
+        -ms-flex-pack: justify; 
+        justify-content: space-between;
+      }
+
+      #threesLP img{width:100%; font-size: 0; display:block;}
+      .offer-container p.offer-header{font-size:1.2rem; margin: 5% auto 3%;line-height: 1;}
+      .offer-valid, .offer-invalid{display:none;}
+      .offer-valid p{text-align:center;text-transform: uppercase; font-size:0.5rem; font-weight:700;margin:0; padding:2% 0; letter-spacing:2px}
+      .tx_center {text-align: center;}
+      .uppercase{text-transform: uppercase;}
+      .clock__container {
+        align-items: center;
+        justify-content: center;
+      }
+      .clock__item, .ginfo__item {
+        color: #000;
+        text-align: center;
+        line-height: 1;
+        font-weight: 700;
+        margin:0 3%;
+      }
+      .clock__item__number {
+        font-size: 3rem;
+        line-height: 1;
+        text-align:center;
+      }
+      .clock__item__unit {
+        font-size: 1rem;
+        font-weight:100;
+        text-transform: uppercase;
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      .ginfo__container{ flex-wrap:wrap; align-items:center; justify-content:center; text-align: left; margin-bottom:10%;}
+      .ginfo__header{position:relative;font-size: 1.5rem;font-weight: 600;margin: 0 auto 2%;letter-spacing:6px}
+      .ginfo__header::after{
+        content: '';
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        height: 40%;
+        background-color: #9EA2A2;
+        z-index: -1;
+      }
+      .header__date{text-align: center; font-weight: 600; background-color:#000; color:#fff; padding: 1% 0; margin-bottom: 2%;}
+      .header__date p{margin: 0 auto; font-weight: 400;}
+      .ginfo__item{color:#000; text-align: right; letter-spacing: 3px; margin:0;}
+      .ginfo__threecount{align-items: center;max-width: 50%;margin: 0 auto;background-color: #fff; color:#000; border: 5px solid #9EA2A2;padding: 2% 0;font-size:.8rem;}
+
+
+      .offer-legal{
+        font-size: 0.7rem;
+      }
+
+      .g-1-1{width:100%;}
+      .g-1-2{width:50%;}
+      .g-1-4{width:25%;}
+      .g-1-3{width:33.33%;}
+      .g-1-5{width:20%;}
+      .g-2-5{width:40%;}
+
+      .toggle-button--inactive, .toggle-button--active{
+        color: #000;
+        background-color: #fff;
+        border: 3px solid #000;
+        padding: 1.3rem 0.7rem;
+        letter-spacing: 1.5px;
+        margin:0;
+        font-family: futura-pt, Futura, tahoma, sans-serif;
+        font-size:0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        width:100%;
+      }
+
+      .toggle-button--active{
+        color:#fff;
+        border-color:#fff;
+        background-color:#9EA2A2;
+      }
+
+      .toggle-container{ 
+        overflow: hidden;
+      }
+
+      .countdown-wrapper{
+        transition: all .5s;
+        margin-top:-300%;
+        background-color: #fff;
+        color:#000;
+        padding: 0% 0 5%;
+      }
+
+      .toggle-button--active + .toggle-container .countdown-wrapper{ margin-top:0; }
+
+      @media screen and (min-width:568px){
+        #threesLP{font-size:200%;}
+        .ginfo__header{font-size:3rem;}
+        .ginfo__threecount{font-size:1.5rem;}
+        .clock__item__number{font-size: 4.5rem;}
+        .clock__item__unit {font-size: 1.5rem;}
+        .offer-valid p{font-size:1rem;}
+        .offer-valid p.offer-header{font-size:2.2rem;}
+        .toggle-button--inactive, .toggle-button--active{font-size:1rem;}
+      }
+
+      table, th, td {
+        border: 1px solid #9EA2A2;
+        border-collapse: collapse;
+      }
+    </style>
+
+
+    <div id="threesLP" class="flex-display">
+      <div class="header">
+        <div class="header__banner">
+          <img alt="we have the threes promotion banner" src="https://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/timberwolves/media/Arbys-We-Have-The-Threes-App-Image-v4.png">
+        </div>
+        <div class="header__date">
+          <p>GAME DATE – <span id="header__month" class="uppercase"></span>/<span id="header__day"></span>/<span id="header__year"></span></p>
+        </div>
+      </div>
+      <div class="offer-legal tx_center">
+        <p>Limit 1 per customer. Offer valid for Timberwolves regular-season games 12/6/19 – 4/15/20. Valid at <a style="color:#236192;" onclick="mntw_toggleModal();">participating locations</a> only starting at 10am the morning after each qualifying game for 24 hours. To redeem, show coupon to cashier. Not valid with any other coupons or offers</p>
+      </div>
+      <div class="ginfo__container flex-display">
+
+        <div class="g-1-1"><p class="ginfo__header tx_center">MATCH UP</p></div>
+
+        <div style="width:35%;margin-left:12%">
+          <div class="team-widget tx_center">
+            <span id="oppTeamName" class="team-widget__name"></span>
+            <img id="oppTeam" class="team-widget__img" alt src="">
+          </div>
+        </div>
+        <div class="tx_center" style="width:6%;">
+          <span>vs</span>
+        </div>
+        <div style="width:35%;margin-right:12%">
+          <div class="team-widget tx_center">
+            <span id="homeTeamName" class="team-widget__name"></span>
+            <img id="homeTeam" class="team-widget__img" alt src="">
+          </div>
+        </div>
+        <div class="g-1-1">
+          <div class="ginfo__threecount flex-display">
+            <div class="g-1-2">
+              <div class="ginfo__item">THREE</div>
+              <div class="ginfo__item">POINT</div>
+              <div class="ginfo__item">COUNT</div>
+            </div>
+            <div id="tpmCount" class="clock__item__number g-1-2">0</div>
+          </div>
+        </div>
+        <div class="offer-container">
+          <div class="offer-valid tx_center">
+            <p class="offer-header">WE HIT THREES<br/>YOU WIN!</p>
+            <div class="toggle-container">
+              <div class="countdown-wrapper">
+                <p style="font-weight:100;">Your offer will expire in:</p>
+                <div class="clock__container flex-display">
+                  <div class="clock__item">
+                    <div id="hour" class="clock__item__number">0 </div><span class="clock__item__unit">hours</span>
+                  </div> 
+                  <div class="clock__item">
+                    <div id="min" class="clock__item__number">0 </div><span class="clock__item__unit">minutes</span>
+                  </div> 
+                  <div class="clock__item">
+                    <div id="sec" class="clock__item__number">0 </div><span class="clock__item__unit">seconds</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="offer-invalid">
+          </div>
+        </div>
+      </div>
+      
+      <div class="offer-legal tx_center"><p>TM & © 2019 Arby's IP Holder, LLC. All Rights Reserved.</p></div>
+    </div>
+
+    <script type="text/javascript" src="countdown2.js"></script>
+    <script type="text/javascript">
+      var mntw__threeCounter = {
+        props :  {
+          timestamp24hour : 0,
+          gameID: "",
+          threesMade: "",
+          gameProgress: "",
+          timestampAPI: "https://mntw-3s.herokuapp.com/",
+          offerToggled: false,
+          toggles: 0,
+        },
+
+        timestampHandler : function(props, apiResponse){
+          offerValid = document.querySelector('.offer-valid');
+          offerInvalid = document.querySelector('.offer-invalid');
+          jsonData = apiResponse;
+          
+          //Game Progress
+          // props.gameProgress = "2";
+          props.gameProgress = jsonData.status;
+
+          //Pull three pointer data
+          // threesMade = 6;
+          props.threesMade = jsonData.threes;
+          tpmCount.innerHTML = props.threesMade;
+
+
+          //Set 24 hour timestamp & grab game ID
+          props.timestamp24hour = jsonData.timestamp + 86400000;
+          props.gameID = jsonData.gid;
+
+          mntw__threeCounter.gameDataHandler(props.gameID);
+
+
+          //If threes made hits 12 or more, start countdown and display offer 
+          if(props.threesMade >= 12){
+
+            // document.querySelector('div.header__banner img').src = "https://i.cdn.turner.com/nba/nba/.element/media/2.0/teamsites/timberwolves/media/Arbys-We-Have-The-Threes-App-Image-v1.png";
+
+            //Display offer-valid container
+            offerValid.style.display = "block";
+
+            //Start countdown clock
+            if (jsonData.timestamp > Date.now()) {
+              offerValid.innerHTML = "<p class='offer-header'>Offer goes live at 10am.</p>";
+            } else if(Date.now() > props.timestamp24hour){
+              offerValid.innerHTML = "<p class='offer-header'>Your offer has expired.</p>";
+            }else{
+              var cdToggle = document.createElement('button');
+              var toggleContainer = document.querySelector('.toggle-container');
+
+              cdToggle.className = "toggle-button--inactive";
+              cdToggle.innerHTML = "<span>PRESENT TO CASHIER TO REDEEM +</span>"
+              toggleContainer.parentElement.insertBefore(cdToggle, toggleContainer);
+
+              cdToggle.addEventListener("click", function(){
+                if(cdToggle.nextSibling.className == "toggle-container"){
+                  props.offerToggled = props.offerToggled ? false : true;
+                  cdToggle.className = props.offerToggled ? "toggle-button--active" : "toggle-button--inactive";
+                  cdToggle.innerHTML = props.offerToggled ? "<span>PRESENT TO CASHIER TO REDEEM -</span>" : "<span>PRESENT TO CASHIER TO REDEEM +</span>"
+
+                  if(props.toggles === 0){
+                  
+                    props.toggles++;
+                    var lpTimer = countdown( 
+                      new Date(props.timestamp24hour),
+                      function(ts) {
+                        hour.innerHTML = ts.hours;
+                        min.innerHTML = ts.minutes;
+                        sec.innerHTML = ts.seconds;
+                      },
+                      countdown.HOURS|countdown.MINUTES|countdown.SECONDS
+                    );
+                  }
+                }
+              })
+            }
+          }else{
+            offerValid.remove();
+            offerInvalid.style.display = "block";
+            if(props.gameProgress === "3"){
+              offerInvalid.innerHTML = "<p class='offer-header tx_center'>Sorry, not today. Stay tuned for next game.</p>";
+            }else offerInvalid.innerHTML = "<p class='offer-header tx_center'><strong>" + (12 - props.threesMade) + "</strong> more three pointers to go!</p>";
+          }
+        },
+
+        gameDataHandler : function(gid){
+          //Pull game data
+          var schedAPI = "https://data.nba.com/data/v2015/json/mobile_teams/nba/2019/teams/timberwolves_schedule_02.json",
+              schedCall = new XMLHttpRequest(),
+              twsched,
+              gameDate;
+          
+          schedCall.open('GET', schedAPI);
+          schedCall.onload = function(){
+            if(schedCall.status ===200){
+              twsched = JSON.parse(schedCall.responseText);
+
+              recentGame = twsched.gscd.g.filter(function(game){
+                return game.gid === gid;
+              })
+
+              gameDate =  recentGame[0].gcode.split("/")[0];
+
+              boxscoreAPI = "https://data.nba.net/data/10s/json/cms/noseason/game/" + gameDate + "/" + gid + "/boxscore.json";
+              
+              mntw__threeCounter.boxscoreHandler(boxscoreAPI);
+            }else {
+              alert('Request failed.  Returned status of ' + schedCall.status);
+            }
+          }
+          schedCall.send()
+        },
+
+        boxscoreHandler : function(api){
+          var boxscoreCall = new XMLHttpRequest()
+
+          boxscoreCall.open('GET', api);
+          boxscoreCall.onload = function(){
+            if(boxscoreCall.status ===200){
+              boxscore = JSON.parse(boxscoreCall.responseText);
+
+              var dateString = boxscore.sports_content.game.date;
+
+              header__year.innerHTML = dateString.substring(0, 4);
+              header__month.innerHTML = dateString.substring(4, 6);
+              header__day.innerHTML = dateString.substring(6, 8);
+
+              var home = boxscore.sports_content.game.home;
+              var visitor = boxscore.sports_content.game.visitor;
+              if(home.team_key === "MIN"){
+                homeTeam.alt = home.url_name + " logo"
+                homeTeam.src = "https://i.cdn.turner.com/nba/nba/assets/logos/teams/primary/web/" + home.team_key + ".svg";
+                homeTeamName.innerHTML = home.nickname;
+
+                oppTeam.alt = visitor.url_name + " logo"
+                oppTeam.src = "https://i.cdn.turner.com/nba/nba/assets/logos/teams/primary/web/" + visitor.team_key + ".svg";
+                oppTeamName.innerHTML = visitor.nickname;
+              }else{
+                homeTeam.alt = visitor.url_name + " logo"
+                homeTeam.src = "https://i.cdn.turner.com/nba/nba/assets/logos/teams/primary/web/" + visitor.team_key + ".svg";
+                homeTeamName.innerHTML = visitor.nickname;
+
+                oppTeam.alt = home.url_name + " logo"
+                oppTeam.src = "https://i.cdn.turner.com/nba/nba/assets/logos/teams/primary/web/" + home.team_key + ".svg";
+                oppTeamName.innerHTML = home.nickname;
+              }
+            }
+          }
+          boxscoreCall.send()
+        },
+
+        init : function(props){
+          // var timestampCall = new XMLHttpRequest();
+          // timestampCall.open('GET', props.timestampAPI);
+
+          var timestampDummy = {
+              error: 'test',
+              found: true,
+              gid: '0021900006',
+              status: '2',
+              threes: '12',
+              timestamp: new Date().getTime()
+            }
+          /*timestampCall.onload = function() {
+            if (timestampCall.status === 200) {
+              mntw__threeCounter.timestampHandler(props, timestampCall);
+            }else {
+              alert('Request failed.  Returned status of ' + timestampCall.status);
+            }
+          };
+          timestampCall.send();*/
+
+          mntw__threeCounter.timestampHandler(props, timestampDummy);
+        }
+      }
+
+      mntw__threeCounter.init(mntw__threeCounter.props);
+    </script>
+
+
+    <style type="text/css">
+      #threesLP_modal{
+        background-color:rgba(255,255,255,1);
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        overflow:scroll;
+        z-index: 3;
+        display:none;
+      }
+
+      .threesLP_modal__header{ background-color:rgba(0,0,0,.75);height:50px;width:100%; }
+      .threesLP_modal__header span{ color:#fff;font-size:2rem;float:right;padding:0 5%; cursor:pointer;}
+      #threesLP_modal iframe{
+        width:100%;
+        border:none;
+      }
+      #threesLP_modal input{
+        display: block;
+        height: 50px;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        width: 95%;
+        max-width: 600px;
+        margin: 5% auto;
+        border: 2px solid #9EA2A2;
+      }
+
+      #threesLP_participants{
+        font-size: 0.75rem;
+        width: 100%;
+      }
+
+      #threesLP_modal.threesLP_modal--toggle{display:block;}
+    </style>
+
+    <div id="threesLP_modal" style="">
+      <div class="threesLP_modal__header" onclick="mntw_toggleModal()"><span>x</span></div>
+      
+      <input type="text" id="threesLP_search" onkeyup="mntw_filterResults()" placeholder="Filter by City or ZIP..">
+      <table id="threesLP_participants">
+        <thead><tr ><th>Address</th><th>City</th><th>State</th><th>ZIP</th><th>DMA</th></tr></thead>
+        <tbody>
+         <tr><td>2707 BRIDGE AVE</td><td>ALBERT LEA</td><td>MN</td><td>56007-2078</td><td>MASON CITY-AUSTIN-ROCHESTER</td></tr>
+         <tr><td>4621 STATE HIGHWAY 29 SOUTH</td><td>ALEXANDRIA</td><td>MN</td><td>56308-6175</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>7525 153RD ST W</td><td>APPLE VALLEY</td><td>MN</td><td>55124-4801</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3751 LEXINGTON AVE N.</td><td>ARDEN HILLS</td><td>MN</td><td>55126</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1305 18TH AVE NW</td><td>AUSTIN</td><td>MN</td><td>55912-1857</td><td>MASON CITY-AUSTIN-ROCHESTER</td></tr>
+         <tr><td>15065 EDGEWOOD DR</td><td>BAXTER</td><td>MN</td><td>56425</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2312 TRUSTAR AVENUE NW</td><td>BEMIDJI</td><td>MN</td><td>56601</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>619 HWY 10</td><td>BLAINE</td><td>MN</td><td>55434</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>10320 BALTIMORE ST NE</td><td>BLAINE</td><td>MN</td><td>55449-4673</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>4260 PHEASANT RIDGE DR NE</td><td>BLAINE</td><td>MN</td><td>55449-4529</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>9240 LYNDALE AVE S</td><td>BLOOMINGTON</td><td>MN</td><td>55420</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>5444 BROOKLYN BLVD</td><td>BROOKLYN CENTER</td><td>MN</td><td>55429-3360</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>8016 BROOKLYN BLVD</td><td>BROOKLYN PARK</td><td>MN</td><td>55445</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1 HIGHWAY 55 W</td><td>BUFFALO</td><td>MN</td><td>55313-8921</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>14221 GRAND AVE S</td><td>BURNSVILLE</td><td>MN</td><td>55337</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2350 2ND AVE SE</td><td>CAMBRIDGE</td><td>MN</td><td>55008-4104</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>11978 BUSINESS PARK BLVD N</td><td>CHAMPLIN</td><td>MN</td><td>55316-2005</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>805 YELLOW BRICK RD</td><td>CHASKA</td><td>MN</td><td>55318</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>704 HWY 33 SOUTH</td><td>CLOQUET</td><td>MN</td><td>55720</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>2820 COON RAPIDS BLVD</td><td>COON RAPIDS</td><td>MN</td><td>55433</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3385 124TH AVE NW</td><td>COON RAPIDS</td><td>MN</td><td>55433</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>7185 E POINT DOUGLAS RD S</td><td>COTTAGE GROVE</td><td>MN</td><td>55016-3026</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>5629 BROADWAY AVE W</td><td>CRYSTAL</td><td>MN</td><td>55428</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1362 W. ARROWHEAD DR</td><td>DULUTH</td><td>MN</td><td>55811</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>4315 GRAND AVE</td><td>DULUTH</td><td>MN</td><td>55807</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>1279 TOWN CENTRE DR</td><td>EAGAN</td><td>MN</td><td>55123</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>560 PRAIRIE CENTER DR</td><td>EDEN PRAIRIE</td><td>MN</td><td>55344</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>19190 FREEPORT ST NW</td><td>ELK RIVER</td><td>MN</td><td>55330</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>313 LYNDALE AVE</td><td>FARIBAULT</td><td>MN</td><td>55021</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>120 SW 12TH ST</td><td>FOREST LAKE</td><td>MN</td><td>55025</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>810 POKEGAMA AVENUE</td><td>GRAND RAPIDS</td><td>MN</td><td>55744-3935</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>1702 MARKET BLVD</td><td>HASTINGS</td><td>MN</td><td>55033</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2401 GATEWAY CT</td><td>HUDSON</td><td>WI</td><td>54016</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1340 HIGHWAY 15 S</td><td>HUTCHINSON</td><td>MN</td><td>55350-3801</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>12400 LAKE BLVD</td><td>LINDSTROM</td><td>MN</td><td>55045</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2300 RICE ST</td><td>LITTLE CANADA</td><td>MN</td><td>55113</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>100 LEMIEUR ST</td><td>LITTLE FALLS</td><td>MN</td><td>56345</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>7885 WEDGEWOOD LANE</td><td>MAPLE GROVE</td><td>MN</td><td>55369</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3109 WHITE BEAR AVE</td><td>MAPLEWOOD</td><td>MN</td><td>55109</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1422 E. COLLEGE DR</td><td>MARSHALL</td><td>MN</td><td>56258</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1717 BROADWAY ST N</td><td>MENOMONIE</td><td>WI</td><td>54751-1321</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3000 SNELLING AVE</td><td>MINNEAPOLIS</td><td>MN</td><td>55406-1911</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>5100 COUNTY RD 101</td><td>MINNETONKA</td><td>MN</td><td>55345</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>9456 DEEGAN ST NE</td><td>MONTICELLO</td><td>MN</td><td>55362-4528</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2220 GLEASON CT</td><td>NORTHFIELD</td><td>MN</td><td>55057</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>5990 NEAL AVE N</td><td>OAK PARK HEIGHTS</td><td>MN</td><td>55082</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>136 ALLAN AVE SW</td><td>OWATONNA</td><td>MN</td><td>55060</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>14420 N 28TH PL</td><td>PLYMOUTH</td><td>MN</td><td>55447</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>10205 6TH AVE N</td><td>PLYMOUTH</td><td>MN</td><td>55441</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3056 N SERVICE DR</td><td>RED WING</td><td>MN</td><td>55066-1921</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2921 DECKER DRIVE</td><td>RICE LAKE</td><td>WI</td><td>54868</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>7744 5TH AVE S</td><td>RICHFIELD</td><td>MN</td><td>55423</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1218 APACHE DR SW</td><td>ROCHESTER</td><td>MN</td><td>55902</td><td>MASON CITY-AUSTIN-ROCHESTER</td></tr>
+         <tr><td>2130 37TH ST NW</td><td>ROCHESTER</td><td>MN</td><td>55901</td><td>MASON CITY-AUSTIN-ROCHESTER</td></tr>
+         <tr><td>21595 S DIAMOND LAKE RD</td><td>ROGERS</td><td>MN</td><td>55374</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3380 150TH ST. W</td><td>ROSEMOUNT</td><td>MN</td><td>55068</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2105 N SNELLING AVE</td><td>ROSEVILLE</td><td>MN</td><td>55113</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>8400 EGAN DR</td><td>SAVAGE</td><td>MN</td><td>55378-2132</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1546 VIERLING DR</td><td>SHAKOPEE</td><td>MN</td><td>55379</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>8010 OLD CARRIAGE CT</td><td>SHAKOPEE</td><td>MN</td><td>55379-3156</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3275 FIRST ST S</td><td>ST. CLOUD</td><td>MN</td><td>56301</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>348 LINCOLN AVE SE</td><td>ST. CLOUD</td><td>MN</td><td>56301</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1690 PARK PLACE BLVD</td><td>ST. LOUIS PARK</td><td>MN</td><td>55416-1500</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1807 SUBURBAN AVE</td><td>ST. PAUL</td><td>MN</td><td>55119</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1810 UNIVERSITY AVE</td><td>ST. PAUL</td><td>MN</td><td>55104</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>654 SNELLING AVE S</td><td>ST. PAUL</td><td>MN</td><td>55116</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>401 ROBERT ST N</td><td>ST. PAUL</td><td>MN</td><td>55101</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1211 MINNESOTA AVENUE</td><td>ST. PETER</td><td>MN</td><td>56082</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>3821 TOWER AVENUE</td><td>SUPERIOR</td><td>WI</td><td>54880-5340</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>1301 12TH AVENUE S.</td><td>VIRGINIA</td><td>MN</td><td>55792</td><td>DULUTH-SUPERIOR</td></tr>
+         <tr><td>1657 S ROBERT ST</td><td>WEST ST. PAUL</td><td>MN</td><td>55118</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>1028 MEADOWLANDS DR</td><td>WHITE BEAR TOWNSHIP</td><td>MN</td><td>55127</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>2415 S 1ST ST</td><td>WILLMAR</td><td>MN</td><td>56201</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+         <tr><td>9975 HUDSON RD</td><td>WOODBURY</td><td>MN</td><td>55125</td><td>MINNEAPOLIS-ST. PAUL</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+    function mntw_filterResults() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("threesLP_search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("threesLP_participants");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        city = tr[i].getElementsByTagName("td")[1];
+        zip = tr[i].getElementsByTagName("td")[3];
+        if (city || zip) {
+          cityValue = city.textContent || city.innerText;
+          zipValue = zip.textContent || zip.innerText;
+          if (cityValue.replace(/[ ,.]/g, "").toUpperCase().indexOf(filter.replace(/[ ,.]/g, "")) > -1 || zipValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    function mntw_toggleModal(){
+      if(threesLP_modal.className === 'threesLP_modal--toggle'){
+        threesLP_modal.className =  '';
+        threesLP_modal__map.remove();
+      }else{
+        var iframe = document.createElement('iframe');
+        var mapEmbed = threesLP_modal.insertBefore(iframe, threesLP_search);
+        threesLP_modal.className = 'threesLP_modal--toggle';
+        iframe.id = "threesLP_modal__map";
+        iframe.height = 360;
+        iframe.src = "https://www.google.com/maps/d/embed?mid=1B9SjgoGfLNmP4_PFGUIFiPKz9XloqZwv";
+      }
+      
+    }
+    </script>
+  </body>
+</html>
