@@ -318,7 +318,7 @@
 
         gameDataHandler : function(gid){
           //Pull game data
-          var schedAPI = "https://data.nba.com/data/v2015/json/mobile_teams/nba/2019/teams/timberwolves_schedule_02.json",
+          var schedAPI = "https://cors-anywhere.herokuapp.com/https://data.nba.com/data/v2015/json/mobile_teams/nba/2019/teams/timberwolves_schedule_02.json",
               schedCall = new XMLHttpRequest(),
               twsched,
               gameDate;
@@ -334,7 +334,7 @@
 
               gameDate =  recentGame[0].gcode.split("/")[0];
 
-              boxscoreAPI = "https://data.nba.net/data/10s/json/cms/noseason/game/" + gameDate + "/" + gid + "/boxscore.json";
+              boxscoreAPI = "https://cors-anywhere.herokuapp.com/https://data.nba.net/data/10s/json/cms/noseason/game/" + gameDate + "/" + gid + "/boxscore.json";
               
               mntw__threeCounter.boxscoreHandler(boxscoreAPI);
             }else {
